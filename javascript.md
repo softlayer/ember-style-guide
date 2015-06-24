@@ -12,7 +12,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Conventions
 
-* [ES2015 and ES7](#ES2015-and-ES7)
+* [ES2015 and ES7](#es2015-and-es7)
 
 ### Grammar
 
