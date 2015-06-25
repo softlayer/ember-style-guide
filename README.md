@@ -34,7 +34,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Ember Data
 
-* [Be explicit with Ember Data attribute types](be-explicit-with-ember-data-attribute-types)
+* [Be explicit with Ember Data attribute types](#be-explicit-with-ember-data-attribute-types)
 
 
 ### File Structure
@@ -44,11 +44,11 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Architecture Philosophy
 
-* [Where should DOM interactions occur in an Ember application?](where-should-dom-interactions-occur-in-an-ember application?)
-* [Where to put actions in an Ember application](where-to-put-actions-in-an-ember-application)
+* [Where should DOM interactions occur in an Ember application?](#where-should-dom-interactions-occur-in-an-ember-application)
+* [Where to put actions in an Ember application](#where-to-put-actions-in-an-ember-application)
 * [Routes](#routes)
-* [Do not redefine the `init()` method, or do so with full knowledge of what you are doing](do-not-redefine-the-init-method,-or-do-so-with-full-knowledge-of-what-you-are-doing)
-* [Do not redefine the `willInsertElement()`, `didInsertElement()`, `willClearRender()`, `willDestroyElement()`, or `didDestroyElement()` methods, or do so with full knowledge of what you are doing](do-not-redefine-the-willinsertelement,-didinsertelement,-willclearRender,-willdestroyelement,-or-diddestroyelement-methods,-or-do-so-with-full-knowledge-of-what-you-are-doing)
+* [Do not redefine the `init()` method, or do so with full knowledge of what you are doing](#do-not-redefine-the-init-method-or-do-so-with-full-knowledge-of-what-you-are-doing)
+* [Do not redefine the `willInsertElement()`, `didInsertElement()`, `willClearRender()`, `willDestroyElement()`, or `didDestroyElement()` methods, or do so with full knowledge of what you are doing](#do-not-redefine-the-willinsertelement-didinsertelement-willclearrender-willdestroyelement-or-diddestroyelement-methods-or-do-so-with-full-knowledge-of-what-you-are-doing)
 
 
 
