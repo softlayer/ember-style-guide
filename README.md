@@ -49,6 +49,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Routes](#routes)
 * [Do not redefine the `init()` method, or do so with full knowledge of what you are doing](#do-not-redefine-the-init-method-or-do-so-with-full-knowledge-of-what-you-are-doing)
 * [Do not redefine the `willInsertElement()`, `didInsertElement()`, `willClearRender()`, `willDestroyElement()`, or `didDestroyElement()` methods, or do so with full knowledge of what you are doing](#do-not-redefine-the-willinsertelement-didinsertelement-willclearrender-willdestroyelement-or-diddestroyelement-methods-or-do-so-with-full-knowledge-of-what-you-are-doing)
+* [Observers](#observers)
 
 
 
@@ -810,4 +811,10 @@ offers a reason for when you should
 * Rarely will you need to redefine any of these methods.  If you do you will
 likely need to call `this._super.apply( this, arguments )`, though this will
 depend on your exact needs.
+
+### Observers
+
+A good pattern to follow for improved performance is the one presented in the
+video at [https://youtu.be/cp1Jk92ve2s?t=1097](https://youtu.be/cp1Jk92ve2s?t=1097)
+from timestamp 18:18 to 20:15
 
