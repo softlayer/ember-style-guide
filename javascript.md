@@ -567,6 +567,28 @@ function foo (bar) {
 foo ( 1 );
 ```
 
+* **MUST NOT** use a space between a logical not (`!`) and the value being checked
+
+```javascript
+// good
+if ( !available ) {
+    ...
+}
+
+if ( !( 'foo' in obj ) ) {
+    ...
+}
+
+// bad
+if ( ! availale ) {
+    ...
+}
+
+if ( ! ( 'foo' in obj ) ) {
+    ...
+}
+```
+
 * **MUST NOT** aligning on colons and equal signs
 
 ```javascript
@@ -607,11 +629,6 @@ foo({
     a: 'alpha',
     b: 'beta'
 });
-
-// Inner grouping parens, no space
-if ( !('foo' in obj) ) {
-    ...
-}
 ```
 
 
