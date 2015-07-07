@@ -567,7 +567,8 @@ function foo (bar) {
 foo ( 1 );
 ```
 
-* **MUST NOT** use a space between a logical not (`!`) and the value being checked
+* Operators by default **MUST** have spaces around them *...EXCEPT...*
+    * Non-word unary operators **MUST NOT**
 
 ```javascript
 // good
@@ -579,6 +580,15 @@ if ( !( 'foo' in obj ) ) {
     ...
 }
 
+i++;
+
+let j = -x;
+
+delete myVariable;
+
+let a = b;
+
+
 // bad
 if ( ! available ) {
     ...
@@ -587,7 +597,14 @@ if ( ! available ) {
 if ( ! ( 'foo' in obj ) ) {
     ...
 }
+
+i ++;
+
+let j = - x;
+
+let a=b;
 ```
+
 
 * **MUST NOT** aligning on colons and equal signs
 
