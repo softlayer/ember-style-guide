@@ -599,12 +599,6 @@ newline)
 * It is **RECOMMENDED** the following deviations be observed:
 
 ```javascript
-// Functions with callbacks
-foo(function() {
-    // Note there is no extra space between the first parenthesis
-    // of the executing function call and the word "function"
-});
-
 // Function accepting an array, no space
 foo([ 'alpha', 'beta' ]);
 
