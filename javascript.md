@@ -84,8 +84,8 @@ return fooBar( foo );
 
 // should use leading space
 // should not use closing space
-return fooBar( foo, (bars) => {
-    return bars.map( (bar) => {
+return fooBar( foo, ( bars ) => {
+    return bars.map( ( bar ) => {
         return bar * 2;
     });
 });
@@ -96,8 +96,8 @@ statement or declaration
 
 ```javascript
 // good
-return fooBar( foo, (bars) => {
-    return bars.map( (bar) => {
+return fooBar( foo, ( bars ) => {
+    return bars.map( ( bar ) => {
         return bar * 2;
     });
 });
