@@ -443,18 +443,24 @@ console.log(a); // ReferenceError
 console.log(b); // ReferenceError
 ```
 
-* **MUST** group your `const`s at the top of their block scope
+* `const`s **SHOULD** be defined inline where they are needed and don't need to
+be placed at the beginning of the scoped block
 
 ```javascript
 // good
 const isTrue = true;
-const bar = 123;
-if ( foo ) { ... }
+
+if ( foo ) {
+    const bar = 123;
+}
+
+const baz = 456;
+
 
 // bad
-if ( foo ) { ... }
 const bar = 123;
 const isTrue = true;
+if ( foo ) { ... }
 ```
 
 * **MUST** use a single `const` declaration for each assignment
