@@ -602,7 +602,6 @@ newline)
 // Function accepting an array, no space
 foo([ 'alpha', 'beta' ]);
 
-// 2.D.1.2
 // Function accepting an object, no space
 foo({
     a: 'alpha',
