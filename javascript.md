@@ -191,7 +191,7 @@ else
 
 ```javascript
 const foo = 'foo';
-const arr = [1, 2, 3];
+const arr = [ 1, 2, 3 ];
 
 // good
 if ( arr.length > 0 ) {
@@ -271,7 +271,7 @@ sortColumn( column ) {
 ```javascript
 // good
 const foo = {
-    bar: [1, 2, 3],
+    bar: [ 1, 2, 3 ],
     baz: {
         a: 'a'
     }
@@ -408,11 +408,11 @@ reference
 
 ```javascript
 // good
-const a = [1, 2, 3];
-let b = [4, 5, 6];
+const a = [ 1, 2, 3 ];
+let b = [ 4, 5, 6 ];
 
 function doStuff() {
-    b = [1, 2, 3];
+    b = [ 1, 2, 3 ];
 
     return b;
 }
@@ -870,13 +870,13 @@ return prefix + ' world, ' + suffix;
 
 ```javascript
 // good
-const foo = [1, 2, 3];
+const foo = [ 1, 2, 3 ];
 const bar = new Array(3);
 let list = [];
 
 // bad
 const foo = new Array();
-const bar = new Array(1, 2, 3);
+const bar = new Array( 1, 2, 3 );
 let list = new Array();
 ```
 
@@ -904,13 +904,13 @@ foo[length] = 'bar';
 
 ```javascript
 // join 2 arrays
-const foo = [0, 1, 2];
-const bar = [3, 4, 5];
+const foo = [ 0, 1, 2 ];
+const bar = [ 3, 4, 5 ];
 
 foo.push( ...bar );
 
 // avoid using `Function.prototype.apply`
-const values = [25, 50, 75, 100];
+const values = [ 25, 50, 75, 100 ];
 
 // good
 const max = Math.max.apply( Math, values );
@@ -923,7 +923,7 @@ const max = Math.max( ...values );
 
 ```javascript
 // good
-const foo = ['a', 'b', 'c'];
+const foo = [ 'a', 'b', 'c' ];
 
 // bad
 const foo = ['a','b','c'];
@@ -932,7 +932,7 @@ const foo = ['a','b','c'];
 * **MUST** use array destructuring
 
 ```javascript
-const arr = [1, 2, 3, 4];
+const arr = [ 1, 2, 3, 4 ];
 
 // good
 const [ head, ...tail ] = arr;
@@ -1067,14 +1067,14 @@ const foo = {
 
     // good
     bar( items ) {
-        return items.map( (item) => {
+        return items.map( ( item ) => {
             return this.base * item.value;
         });
     },
 
     // good
     bar( items ) {
-        return items.map( (item) => this.base + item.value );
+        return items.map( ( item ) => this.base + item.value );
     },
 
     // bad
@@ -1092,10 +1092,10 @@ const foo = {
 
 ```javascript
 // good
-[1, 2, 3].map( (x) => x * x );
+[ 1, 2, 3 ].map( ( x ) => x * x );
 
 // bad
-[1, 2, 3].map( x => x * x );
+[ 1, 2, 3 ].map( x => x * x );
 ```
 
 * If the function body fits on one line, feel free to omit the braces and use
@@ -1103,10 +1103,10 @@ implicit return. Otherwise, add the braces and use a return statement.
 
 ```javascript
 // good
-[1, 2, 3].map( (x) => x * x );
+[ 1, 2, 3 ].map( ( x ) => x * x );
 
 // good
-[1, 2, 3].map( (x) => {
+[ 1, 2, 3 ].map( ( x ) => {
     return { number: x };
 });
 ```
@@ -1117,7 +1117,7 @@ implicit return. Otherwise, add the braces and use a return statement.
 
 ```javascript
 // good
-function foo(...args) {
+function foo( ...args ) {
     return args.join( '' );
 }
 
