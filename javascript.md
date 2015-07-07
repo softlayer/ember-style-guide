@@ -12,7 +12,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Conventions
 
-* [ES2015 and ES7](#es2015-and-es7)
+* [ES2015 and ES2016](#es2015-and-es2016)
 
 ### Grammar
 
@@ -50,9 +50,9 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Function Arguments](#function-arguments)
 
 
-## ES2015 and ES7
+## ES2015 and ES2016
 
-* ES2015 and ES7 syntax **MUST** be employed whenever possible
+* ES2015 and ES2016 syntax **MUST** be employed whenever possible
 
 
 ## Block Statements
