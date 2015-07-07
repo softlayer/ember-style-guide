@@ -665,12 +665,14 @@ function check( k, v = 0 ) {
 }
 ```
 
-* **SHOULD** append `Collection` to the name of sets of items
+* **SHOULD** name collection objects in either plural form or with an appended plural term (i.e., "items", "collection")
 
 ```javascript
-let hardware; // is a single item
+let item = {};
+let items = [ item ];
 
-let hardwareCollection; // is a set hardware items
+let hardware = new Hardware();
+let hardwareCollection = [ hardware, new Hardware() ];
 ```
 
 * Acronyms **MUST** be treated as words when in names
