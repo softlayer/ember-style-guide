@@ -159,12 +159,12 @@ item you are checking on the right
 
 ```javascript
 // recommended
-if( false === foo ) {
+if ( false === foo ) {
     ...
 }
 
 // allowed
-if( foo === false ) {
+if ( foo === false ) {
     ...
 }
 ```
