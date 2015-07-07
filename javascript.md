@@ -580,7 +580,7 @@ if ( !( 'foo' in obj ) ) {
 }
 
 // bad
-if ( ! availale ) {
+if ( ! available ) {
     ...
 }
 
