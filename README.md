@@ -52,10 +52,11 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Observers](#observers)
 
 
-
 ### Type checking
 
-* **MUST** be performed via the use of `Ember.typeOf`
+* **MUST** be performed via the use of `Ember.typeOf` for every type except for `Symbol`.
+* `Symbol` **MUST** be checked via `typeof`, due to
+[this Ember.js issue](https://github.com/emberjs/ember.js/issues/11673).
 
 
 ### Comments
