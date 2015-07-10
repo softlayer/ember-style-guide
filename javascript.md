@@ -50,6 +50,14 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Function Arguments](#function-arguments)
 
 
+## Enumerables
+
+* [Enumerables](#enumerables)
+
+
+---
+
+
 ## ES2015 and ES2016
 
 * ES2015 and ES2016 syntax **MUST** be employed whenever possible
@@ -1175,4 +1183,23 @@ function fooBar( obj, key, value ) {
     key = key || 'id';
     ...
 }
+```
+
+
+### Enumerables
+
+Although enumerables don't exist natively in JavaScript yet, the functionality to create an object structure analogous to an enum exists using a combination of ES2015's `const` with `Object.freeze()`.
+
+```javascript
+const EnumType = Object.freeze({
+    FIRST: 'first',
+    SECOND: 'second',
+    THIRD: 'third'
+});
+```
+
+When defining an enum type in an ES2015 module intended to be used by other consuming code, you should then export the enum in a block with the enum.
+
+```javascript
+export { EnumType };
 ```
