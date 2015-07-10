@@ -221,6 +221,7 @@ export default Ember.Component.extend( TooltipEnabled, {
     * @override IF overriding a previously-defined function
     * @returns
 * **MAY** contain any of these tags:
+    * @abstract
     * @callback
     * @example
     * @listens
