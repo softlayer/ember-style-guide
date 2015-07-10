@@ -736,10 +736,10 @@ const presenceValidator = new Validator({
 });
 
 /* @enum {String} */
-const ColumnSize = {
+const ColumnSize = Object.freeze({
     LARGE: 'large',
     MEDIUM: 'medium'
-};
+});
 
 // bad
 function Validate (options ) {
@@ -749,10 +749,10 @@ function Validate (options ) {
 const validatedItem = Validate( item );
 
 /* @enum {String} */
-const columnSize = {
+const columnSize = Object.freeze({
     LARGE: 'large',
     MEDIUM: 'medium'
-};
+});
 ```
 
 * Imports that are either module (namespaces) or classes **MUST** be

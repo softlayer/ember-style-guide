@@ -625,10 +625,10 @@ export default Ember.Component.extend( TooltipEnabled, {
  * @memberof module:components/sl-grid
  * @enum {String}
  */
-const ColumnAlign = {
+const ColumnAlign = Object.freeze({
     LEFT: 'left',
     RIGHT: 'right'
-};
+});
 export { ColumnAlign };
 ```
 
