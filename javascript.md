@@ -49,13 +49,10 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Functions](#functions)
 * [Function Arguments](#function-arguments)
 
-
 ### Enumerables
 
 * [Enumerables](#enumerables)
 
-
----
 
 
 ## ES2015 and ES2016
