@@ -52,6 +52,8 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Observers](#observers)
 
 
+---
+
 ### Type checking
 
 * **MUST** be performed via the use of `Ember.typeOf` for every type except for `Symbol`.
@@ -619,10 +621,10 @@ export default Ember.Component.extend( TooltipEnabled, {
  * @memberof module:components/sl-grid
  * @enum {String}
  */
-const ColumnAlign = {
+const ColumnAlign = Object.freeze({
     LEFT: 'left',
     RIGHT: 'right'
-};
+});
 export { ColumnAlign };
 ```
 
@@ -819,4 +821,3 @@ depend on your exact needs.
 A good pattern to follow for improved performance is the one presented in the
 video at [https://youtu.be/cp1Jk92ve2s?t=1097](https://youtu.be/cp1Jk92ve2s?t=1097)
 from timestamp 18:18 to 20:15
-
