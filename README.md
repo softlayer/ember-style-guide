@@ -33,7 +33,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 
 ### Testing
-* [Ember.js Testing Guide](#ember-testing.md)
+* [Ember.js Testing Guide](ember-testing.md)
 
 
 ### Ember Data
