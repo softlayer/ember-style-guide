@@ -763,7 +763,6 @@ let test = {
 
 // bad
 
-
 let test = [ 'okay', 'nope'
 ];
 
