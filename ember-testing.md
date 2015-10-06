@@ -17,7 +17,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 ### Components
 
 * [Unit Tests](#component-unit-tests)
-* [Integration Tests](#integration-unit-tests)
+* [Integration Tests](#component-integration-tests)
 
 
 ---
