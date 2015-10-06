@@ -772,10 +772,6 @@ let test = [
 
 let test = { okay: false
 };
-
-let test = {
-    bindings: [ 'okay' ]
-};
 ```
 
 
