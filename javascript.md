@@ -26,6 +26,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Comments](#comments)
 * [Variables](#variables)
 * [Whitespace](#whitespace)
+* [Newlines](#newlines)
 * [Naming conventions](#naming-conventions)
 * [Line Lengths](#line-lengths)
 
@@ -713,6 +714,69 @@ foo({
     a: 'alpha',
     b: 'beta'
 });
+```
+
+## Newlines
+
+* `Array`s and `Object`s can be defined with all of their elements or
+properties on a single line, but **MUST** be kept to 80 characters or less in
+length
+
+* Once a newline is introduced into the definition of the `Array` or `Object`
+then ALL elements or properties **MUST** be defined on a newline
+
+
+```javascript
+// good
+
+let test = [ 'okay', 'good' ];
+
+let test = [
+    'okay',
+    'good'
+];
+
+let test = { okay: true };
+
+let test = {
+    okay: true
+};
+
+let test = { okay: true, wrong: false };
+
+let test = {
+    okay: true,
+    wrong: false
+};
+
+let test = [
+    'okay',
+    { okay: true }
+];
+
+let test = {
+    bindings: [
+        'okay'
+    ]
+};
+
+
+// bad
+
+
+let test = [ 'okay', 'nope'
+];
+
+let test = [
+    'okay', { okay: false }
+];
+
+let test = { okay: false
+};
+
+let test = {
+    bindings: [ 'okay' ]
+};
 ```
 
 

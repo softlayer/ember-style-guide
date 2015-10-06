@@ -29,7 +29,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
     * [Properties](#properties)
     * [Acceptable Deviations](#acceptable-deviations)
     * [Example of the tags in use](#example-of-the-tags-in-use)
-* [Whitespace](#whitespace)
+* [Newlines](#newlines)
 
 
 ### Ember Data
@@ -631,7 +631,7 @@ export { ColumnAlign };
 ```
 
 
-### Whitespace
+### Newlines
 
 * Newlines **MUST** be employed in the following scenarios:
     * When defining:
