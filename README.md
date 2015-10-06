@@ -137,6 +137,9 @@ used when warranted.
         * This tag **MUST** be used as appropriate in all other locations (i.e.
         Ember Data application adapter)
 
+* It is **RECOMMENDED** to alphabetize the contents of the `@param`, `@type`,
+and `@returns` tags when multiple types are represented.
+
 
 ##### File structure
 
