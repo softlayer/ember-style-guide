@@ -165,17 +165,33 @@ while ( foo > 3 ) { ... }
 
 * **MUST** use strict equality (`===` and `!==`)
 
-* It is **RECOMMENDED** to place the value on the left of the operation and the
-item you are checking on the right
+* When using strict equality you **MUST** place the value on the left of the
+operation and the item you are checking on the right
 
 ```javascript
-// recommended
+// good
 if ( false === foo ) {
     ...
 }
 
-// allowed
+// bad
 if ( foo === false ) {
+    ...
+}
+```
+
+* Non-strict equality comparisons **SHOULD** be constructed in a
+"grammar-friendly" order
+
+
+```javascript
+// recommended
+if ( itemCount > 0 ) {
+    ...
+}
+
+// allowed
+if ( 0 < itemCount ) {
     ...
 }
 ```
