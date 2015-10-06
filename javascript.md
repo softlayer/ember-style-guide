@@ -90,7 +90,7 @@ String( Date() );
 
 let value = + "3.14";
 
-return !!result ;
+return !!result;
 ```
 
 
