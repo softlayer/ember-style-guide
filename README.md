@@ -126,9 +126,11 @@ meantime the `@augments` tag should be used.
 
 ##### General rules
 
-* `@type` and `@param` types **MUST** be their most generic form (e.g. Array vs
-ember.Array, Object vs ember.Object).  More specific ember.* types **MUST** be
-used when warranted.
+* `@type` and `@param`
+    * types **MUST** be their most generic form (e.g. Array vs ember.Array,
+    Object vs ember.Object)
+    * a `*` refers to native JavaScript types
+    * more specific ember.* types **MUST** be used when warranted
 
 * `@override`
     * This tag indicates that a symbol overrides a symbol with the same name in
