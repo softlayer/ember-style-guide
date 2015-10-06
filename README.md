@@ -11,6 +11,11 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ## Table of Contents
 
+### Conventions
+
+* [Computed Properties](#computed-properties)
+
+
 ### Grammar
 
 * [Type Checking](#type-checking)
@@ -25,7 +30,6 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
     * [Acceptable Deviations](#acceptable-deviations)
     * [Example of the tags in use](#example-of-the-tags-in-use)
 * [Whitespace](#whitespace)
-
 
 
 ### Ember Data
@@ -49,6 +53,13 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 
 ---
+
+### Computed Properties
+
+* **MUST** always return a value
+    * At minimum a `null` value
+    * Other values are acceptable as appropriate
+
 
 ### Type checking
 
