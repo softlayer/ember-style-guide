@@ -1149,6 +1149,10 @@ implicit return. Otherwise, add the braces and use a return statement.
 });
 ```
 
+* It is **RECOMMENDED** to use fat arrows over the more verbose anonymous
+function syntax
+
+
 ## Function Arguments
 
 * **MUST** never use `arguments` – use rest instead
