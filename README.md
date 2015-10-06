@@ -574,7 +574,7 @@ export default Ember.Component.extend( TooltipEnabled, {
      * @returns {String}
      */
     pathForType: function( type ) {
-        type = this._super( type );
+        type = this._super( ...arguments );
         return config.isEmberCliMirageEnabled ? type : type.toLowerCase();
     },
 
@@ -803,7 +803,7 @@ Components should be the first place such needs should be implemented
 * Having said not to use it
 [http://reefpoints.dockyard.com/2014/04/17/ember-object-self-troll.html](http://reefpoints.dockyard.com/2014/04/17/ember-object-self-troll.html)
 offers a reason for when you should
-    * If you do you will likely need to call `this._super.apply( this, arguments )`,
+    * If you do you will likely need to call `this._super( ...arguments )`,
     though this will depend on your exact needs.
     * It is the last part of the article about subclasses being able to
     override that should be the take away from this article
@@ -813,7 +813,7 @@ offers a reason for when you should
 
 * Instead use the `Ember.observer( <eventName>, function() {} )` observer pattern
 * Rarely will you need to redefine any of these methods.  If you do you will
-likely need to call `this._super.apply( this, arguments )`, though this will
+likely need to call `this._super( ...arguments )`, though this will
 depend on your exact needs.
 
 ### Observers
