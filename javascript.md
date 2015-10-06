@@ -163,6 +163,15 @@ while ( foo > 3 ) { ... }
 
 ## Conditional Statements
 
+* **MUST NOT** contain value assignments
+
+```javascript
+// bad
+if ( someVariable = 'someString' ) {
+    ...
+}
+```
+
 * **MUST** use strict equality (`===` and `!==`)
 
 * When using strict equality you **MUST** place the value on the left of the
