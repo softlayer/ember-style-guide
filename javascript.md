@@ -466,9 +466,12 @@ function foo() {
 
 ## Variables
 
-* **MUST NOT** ever use `var`. **MUST** use `const` to declare variables with a
-constant reference (not value), and `let` to declare variables with a variable
-reference
+* **MUST NOT** ever use `var`.
+* **MUST** use `const` to declare variables with a constant reference (not
+value)
+* **MUST** use `let` to declare variables with a variable reference
+* **MUST** use `const` over `let` whenever possible
+
 
 ```javascript
 // good
