@@ -141,7 +141,7 @@ and `@returns` tags when multiple types are represented.
 
 This commenting structure **MUST** be used as a template when creating new
 Component, Controller, Mixin, or Route files.  Route files will not contain all
-of the represented structures. The "[File Structure](#file-structure)" Section
+of the represented structures. The "[File Structure](#file-structure-2)" Section
 describes what should be placed in each section.
 
 ```
