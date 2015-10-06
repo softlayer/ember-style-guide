@@ -32,6 +32,10 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Newlines](#newlines)
 
 
+### Testing
+* [Ember.js Testing Guide](#ember-testing.md)
+
+
 ### Ember Data
 
 * [Be explicit with Ember Data attribute types](#be-explicit-with-ember-data-attribute-types)
