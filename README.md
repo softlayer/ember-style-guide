@@ -27,10 +27,6 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Whitespace](#whitespace)
 
 
-### Controllers
-
-* [Needs](#needs)
-
 
 ### Ember Data
 
@@ -348,11 +344,6 @@ export default Ember.Component.extend( TooltipEnabled, {
     // -------------------------------------------------------------------------
     // Dependencies
 
-    /** @type {String[]} */
-    needs: [
-        'application'
-    ],
-
     // -------------------------------------------------------------------------
     // Attributes
 
@@ -427,11 +418,6 @@ export default Ember.Component.extend( TooltipEnabled, {
 
     // -------------------------------------------------------------------------
     // Dependencies
-
-    /** @type {String[]} */
-    needs: [
-        'application'
-    ],
 
     // -------------------------------------------------------------------------
     // Attributes
@@ -639,7 +625,6 @@ export { ColumnAlign };
         * attributeBindings
         * classNames
         * classNameBindings
-        * needs
     * When using:
         * Ember.observer
         * Ember.on
@@ -648,7 +633,7 @@ export { ColumnAlign };
         * In assert statements in tests
 
 ```javascript
-// SAMPLE: attributeBindings, classNames, classNameBindings, needs
+// SAMPLE: attributeBindings, classNames, classNameBindings
 
 attributeBindings: [
     'data-target',
@@ -664,10 +649,6 @@ classNames: [
 classNameBindings: [
     'themeClassName',
     'dismissable:alert-dismissable'
-],
-
-needs: [
-    'application'
 ]
 
 
@@ -723,12 +704,6 @@ file is re-created with 2 spaces so there is no need to try to maintain 4 spaces
 
 
 
-### Needs
-
-* **MUST** always be done via array syntax, even if there is only a single
-resource listed
-
-
 ### Be explicit with Ember Data attribute types
 
 Even though Ember Data can be used without using explicit types in `attr()`,
@@ -755,7 +730,6 @@ The contents in a file **MUST** be organized in the following order for each
 type that exists:
 
 * Dependencies
-    * needs
     * services
 * Attributes
     * arrangedContent
