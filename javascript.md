@@ -14,6 +14,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 * [ES2015 and ES2016](#es2015-and-es2016)
 * [Line Endings](#line-endings)
+* [Type Coercion](#type-coercion)
 
 ### Grammar
 
@@ -64,6 +65,33 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 ## Line Endings
 
 * Use *nix line endings
+
+
+## Type Coercion
+
+* **MUST** be explicit
+* **MUST** use coercion methods available on types over global methods
+
+```javascript
+// good
+( 123 ).toString();
+
+Date().toString();
+
+let value = Number( '3.14' );
+
+return Boolean( result );
+
+
+// bad
+String( 123 );
+
+String( Date() );
+
+let value = + "3.14";
+
+return !!result ;
+```
 
 
 ## Block Statements
