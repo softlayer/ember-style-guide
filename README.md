@@ -17,7 +17,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Comments](#comments)
     * [JSDoc tags utilizing](#jsdoc-tags-utilizing)
     * [General rules](#general-rules)
-    * [File Structure](#file-structure)
+    * [File Structure](#file-structure-1)
     * [Modules](#modules)
     * [Functions](#functions)
     * [Constants](#constants)
@@ -39,7 +39,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### File Structure
 
-* [File Structure](#file-structure)
+* [File Structure](#file-structure-2)
 
 
 ### Architecture Philosophy

@@ -29,29 +29,29 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Constructors
 
-* [Constructors](#constructors)
+* [Constructors](#constructors-1)
 
 ### Objects
 
-* [Objects](#objects)
+* [Objects](#objects-1)
 * [Properties](#properties)
 
 ### Strings
 
-* [Strings](#strings)
+* [Strings](#strings-1)
 
 ### Arrays
 
-* [Arrays](#arrays)
+* [Arrays](#arrays-1)
 
 ### Functions
 
-* [Functions](#functions)
+* [Functions](#functions-1)
 * [Function Arguments](#function-arguments)
 
 ### Enumerables
 
-* [Enumerables](#enumerables)
+* [Enumerables](#enumerables-1)
 
 
 
