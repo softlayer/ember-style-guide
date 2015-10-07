@@ -148,7 +148,7 @@ import InputBasedMixin from 'your-library/mixins/input-based';
 
 test( 'Expected Mixins are present', function( assert ) {
     assert.ok(
-        InputBased.detect( this.subject() ),
+        InputBasedMixin.detect( this.subject() ),
         'The input-based mixin is present'
     );
 });
