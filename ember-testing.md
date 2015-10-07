@@ -20,6 +20,11 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Integration Tests](#component-integration-tests)
 
 
+### Examples
+
+* [Testing dependent keys](#example-testing-dependent-keys)
+* [Testing mixins are mixed in](#example-testing-mixins-are-mixed-in)
+
 ---
 
 ### Assertions
@@ -65,37 +70,6 @@ also interacts with properties on the component, may need to also be Unit tested
         an action or method without having to exercise it via both, having to
         contrive data paths to get to the parts desired to be tested.
 
-*Example of how to test computed property keys:*
-
-```javascript
-test( 'Dependent keys are correct', function( assert ) {
-    const component = this.subject();
-
-    const currentLabelDependentKeys = [
-        'label',
-        'pending',
-        'pendingLabel'
-    ];
-
-    const sizeClassDependentKeys = [
-        'size'
-    ];
-
-    assert.deepEqual(
-        component.currentLabel._dependentKeys,
-        currentLabelDependentKeys,
-        'Dependent keys are correct for currentLabel()'
-    );
-
-    assert.deepEqual(
-        component.sizeClass._dependentKeys,
-        sizeClassDependentKeys,
-        'Dependent keys are correct for sizeClass()'
-    );
-});
-```
-
-
 ### Component Integration Tests
 
 * **MUST** test:
@@ -135,3 +109,47 @@ Of course there are always exceptions...
 * multiple rendered instances do not always have to be tested.  If the
 component does not contain any logic that references the rendered instance via
 `this.$()` then it is not necessary.
+
+
+### Example: Testing dependent keys
+
+```javascript
+test( 'Dependent keys are correct', function( assert ) {
+    const component = this.subject();
+
+    const currentLabelDependentKeys = [
+        'label',
+        'pending',
+        'pendingLabel'
+    ];
+
+    const sizeClassDependentKeys = [
+        'size'
+    ];
+
+    assert.deepEqual(
+        component.currentLabel._dependentKeys,
+        currentLabelDependentKeys,
+        'Dependent keys are correct for currentLabel()'
+    );
+
+    assert.deepEqual(
+        component.sizeClass._dependentKeys,
+        sizeClassDependentKeys,
+        'Dependent keys are correct for sizeClass()'
+    );
+});
+```
+
+### Example: Testing mixins are mixed in
+
+```javascript
+import InputBasedMixin from 'your-library/mixins/input-based';
+
+test( 'Expected Mixins are present', function( assert ) {
+    assert.ok(
+        InputBased.detect( this.subject() ),
+        'The input-based mixin is present'
+    );
+});
+```
