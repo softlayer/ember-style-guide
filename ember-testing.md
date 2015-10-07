@@ -114,6 +114,8 @@ component does not contain any logic that references the rendered instance via
 ### Example: Testing dependent keys
 
 ```javascript
+// unit test
+
 test( 'Dependent keys are correct', function( assert ) {
     const component = this.subject();
 
@@ -144,6 +146,8 @@ test( 'Dependent keys are correct', function( assert ) {
 ### Example: Testing mixins are mixed in
 
 ```javascript
+// unit test
+
 import InputBasedMixin from 'your-library/mixins/input-based';
 
 test( 'Expected Mixins are present', function( assert ) {
