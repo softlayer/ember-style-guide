@@ -493,11 +493,11 @@ let b = [1, 2, 3];
 * Note that `const` refers to a **constant reference**, not a constant value
 
 ```javascript
-const coolKids = ['Estelle', 'Lauren', 'Romina'];
-coolKids.push('Marin');
-console.log(coolKids); // ['Estelle', 'Lauren', 'Romina', 'Marin']
+const coolKids = [ 'Estelle', 'Lauren', 'Romina' ];
+coolKids.push( 'Marin' );
+console.log( coolKids ); // ['Estelle', 'Lauren', 'Romina', 'Marin']
 
-coolKids = ['Doug', 'Lin', 'Dan']; // SyntaxError: "coolKids" is read-only
+coolKids = [ 'Doug', 'Lin', 'Dan' ]; // SyntaxError: "coolKids" is read-only
 ```
 
 * Note that both `let` and `const` are block scoped
@@ -507,8 +507,8 @@ coolKids = ['Doug', 'Lin', 'Dan']; // SyntaxError: "coolKids" is read-only
     let a = 1;
     const b = 2;
 }
-console.log(a); // ReferenceError
-console.log(b); // ReferenceError
+console.log( a ); // ReferenceError
+console.log( b ); // ReferenceError
 ```
 
 * `const`s **SHOULD** be defined inline where they are needed and don't need to
