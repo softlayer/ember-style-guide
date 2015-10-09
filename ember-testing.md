@@ -20,10 +20,16 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Integration Tests](#component-integration-tests)
 
 
+### Rendering Templates
+
+* [Unit and Integration Tests](#rendering-templates)
+
+
 ### Examples
 
 * [Testing dependent keys](#example-testing-dependent-keys)
 * [Testing mixins are mixed in](#example-testing-mixins-are-mixed-in)
+* [Rendering templates](#example-rendering-templates)
 
 ---
 
@@ -42,8 +48,9 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
         * `classNames`
         * `classNameBindings`
     * that any expected mixins are mixed in
+    [See Example](#example-testing-mixins-are-mixed-in)
     * the dependent keys computed properties are observing, via the
-    `_dependentKeys` property
+    `_dependentKeys` property [See Example](#example-testing-dependent-keys)
     * the logic of the computed property functions
     * the logic of any actions
     * the logic of any event handlers
@@ -111,6 +118,16 @@ component does not contain any logic that references the rendered instance via
 `this.$()` then it is not necessary.
 
 
+### Rendering Templates
+
+* Template strings **MUST** be tagged/prefixed with `hbs` instead of compiled
+with `Ember.HTMLBars.compile`
+* If a template needs to be registered on the registry it **MUST** also be
+unregistered at the conclusion of its use
+
+[See Example](#example-rendering-templates)
+
+
 ### Example: Testing dependent keys
 
 ```javascript
@@ -155,5 +172,27 @@ test( 'Expected Mixins are present', function( assert ) {
         InputBasedMixin.detect( this.subject() ),
         'The input-based mixin is present'
     );
+});
+```
+
+### Example: Rendering templates
+
+```javascript
+// unit or integration test
+
+import hbs from 'htmlbars-inline-precompile';
+
+test( 'Testing something needing template', function( assert ) {
+    const template = hbs`
+        {{#some-component label="One" name="one"}}
+            One
+        {{/some-component}}
+    `;
+
+    this.registry.register( 'template:test-template',  template );
+
+    ...
+
+    this.registry.unregister( 'template:test-template' );
 });
 ```
