@@ -14,6 +14,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 ### Conventions
 
 * [Computed Properties](#computed-properties)
+* [Templates](#templates)
 
 
 ### Grammar
@@ -63,6 +64,15 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * **MUST** always return a value
     * At minimum a `null` value
     * Other values are acceptable as appropriate
+
+
+### Templates
+
+* **MUST** use double quotes in all template syntax (e.g. attributes, property
+values, closure actions, etc) for non-bound values
+    * **MAY** use single quotes if passing a value that contains a double
+    quote, such as with `{{the-component label='The "First" One'}}`, though it
+    is **RECOMMENDED** to use HTML entities or bound values.
 
 
 ### Type checking
