@@ -22,7 +22,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Rendering Templates
 
-* [Unit and Integration Tests](#rendering-templates)
+* [Unit and Integration Tests](#rendering-templates-1)
 
 
 ### Examples
