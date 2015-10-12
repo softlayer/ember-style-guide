@@ -11,6 +11,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Assertions
 
+* [assert.expect()](#assert-expect)
 * [Specificity](#specificity)
 
 
@@ -32,6 +33,11 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Rendering templates](#example-rendering-templates)
 
 ---
+
+### assert.expect()
+
+* assert.expect() **MUST** only be used in asynchronous tests
+
 
 ### Specificity
 
