@@ -11,7 +11,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Assertions
 
-* [assert.expect()](#assert-expect)
+* [assert.expect()](#assertexpect)
 * [Specificity](#specificity)
 
 
