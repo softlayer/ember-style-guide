@@ -35,7 +35,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Specificity
 
-* **MUST** be the most specific possible
+* Assertions **MUST** be the most specific possible
     * in the case of `ember-cli-qunit` this means that `assert.strictEqual()`
     is preferred over `assert.equal()`, for example
 
