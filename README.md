@@ -801,7 +801,7 @@ Components should be the first place such needs should be implemented
 
 ### Do not redefine the `init()` method, or do so with full knowledge of what you are doing
 
-* Instead use the `Ember.observer( 'init', function() {} )` observer pattern
+* Instead use the `Ember.on( 'init', function() {} )` pattern
 * [http://reefpoints.dockyard.com/2014/04/28/dont-override-init.html](http://reefpoints.dockyard.com/2014/04/28/dont-override-init.html)
 * [https://github.com/emberjs/ember.js/issues/3399](https://github.com/emberjs/ember.js/issues/3399)
 * Having said not to use it
