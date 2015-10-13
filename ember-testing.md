@@ -209,11 +209,11 @@ test( 'Testing something needing template', function( assert ) {
 ```javascript
 // unit or integration test
 
-assert.expect( 2 );
-
-const done = assert.async();
-
 test( 'Testing asynchronous behavior', function( assert ) {
+   assert.expect( 2 );
+
+   const done = assert.async();
+
     this.$( '.someSelector' ).queue( () => {
         assert.strictEqual(
             ...
