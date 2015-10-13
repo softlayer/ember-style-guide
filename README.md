@@ -815,7 +815,7 @@ offers a reason for when you should
 
 ### Do not redefine the `willInsertElement()`, `didInsertElement()`, `willClearRender()`, `willDestroyElement()`, or `didDestroyElement()` methods, or do so with full knowledge of what you are doing
 
-* Instead use the `Ember.observer( <eventName>, function() {} )` observer pattern
+* Instead use the `Ember.on( <eventName>, function() {} )` pattern
 * Rarely will you need to redefine any of these methods.  If you do you will
 likely need to call `this._super( ...arguments )`, though this will
 depend on your exact needs.
