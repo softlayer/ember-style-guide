@@ -31,6 +31,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Testing dependent keys](#example-testing-dependent-keys)
 * [Testing mixins are mixed in](#example-testing-mixins-are-mixed-in)
 * [Rendering templates](#example-rendering-templates)
+* [Asynchronous testing](#example-asynchronous-testing)
 
 ---
 
@@ -200,5 +201,29 @@ test( 'Testing something needing template', function( assert ) {
     ...
 
     this.registry.unregister( 'template:test-template' );
+});
+```
+
+### Example: Asynchronous testing
+
+```javascript
+// unit or integration test
+
+assert.expect( 2 );
+
+const done = assert.async();
+
+test( 'Testing asynchronous behavior', function( assert ) {
+    this.$( '.someSelector' ).queue( () => {
+        assert.strictEqual(
+            ...
+        );
+
+        assert.ok(
+            ...
+        );
+
+        done();
+    });
 });
 ```
