@@ -210,9 +210,9 @@ test( 'Testing something needing template', function( assert ) {
 // unit or integration test
 
 test( 'Testing asynchronous behavior', function( assert ) {
-   assert.expect( 2 );
+    assert.expect( 2 );
 
-   const done = assert.async();
+    const done = assert.async();
 
     this.$( '.someSelector' ).queue( () => {
         assert.strictEqual(
