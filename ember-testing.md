@@ -8,6 +8,9 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ## Table of Contents
 
+### Test Cases
+
+* [Comments](#comments)
 
 ### Assertions
 
@@ -34,6 +37,20 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Asynchronous testing](#example-asynchronous-testing)
 
 ---
+
+### Comments
+
+* Test case descriptions **SHOULD** be descriptive enough to void the need for
+DocBlocks
+* Test cases **MAY** be preceded with JSDoc DocBlocks but it is **RECOMMENDED**
+they do not.  Traditional DocBlocks with tags do not add any value, though a
+DocBlock containing comments explaining something peculiar about the test case
+**MAY** be employed.  Do so sparingly.
+* Comments **MAY** be used within test cases but there should rarely be logic
+complicated enough that comments are warranted.  These are tests - there should
+only be light-weight logic most likely testing input and output or isolated
+behaviors.
+
 
 ### assert.expect()
 
