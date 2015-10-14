@@ -12,10 +12,16 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 * [Comments](#comments)
 
+
 ### Assertions
 
 * [assert.expect()](#assertexpect)
 * [Specificity](#specificity)
+
+
+### DOM References
+
+* [Element vs jQuery object](#element-vs-jquery-object)
 
 
 ### Components
@@ -62,6 +68,16 @@ behaviors.
 * Assertions **MUST** be the most specific possible
     * in the case of `ember-cli-qunit` this means that `assert.strictEqual()`
     is preferred over `assert.equal()`, for example
+
+
+### Element vs jQuery object
+
+* If a `const` or `let` assignment directly references a DOM element then the
+name used **MUST** end with the string "*Element*"
+* If a `const` or `let` assignment references a jQuery reference to a DOM element
+then the name used **MUST** not end with the string "*Element*"
+
+[See Example](#example-element-vs-jquery-object)
 
 
 ### Component Unit Tests
@@ -242,5 +258,16 @@ test( 'Testing asynchronous behavior', function( assert ) {
 
         done();
     });
+});
+```
+
+### Example: Element vs jQuery object
+
+```javascript
+// unit or integration test
+
+test( 'Has element references', function( assert ) {
+    const inputElement = document.getElementById( 'myIdentifier' );
+    const input = $( '#myIdentifier' );
 });
 ```
