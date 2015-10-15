@@ -266,7 +266,12 @@ test( 'Testing asynchronous behavior', function( assert ) {
 ```javascript
 // unit or integration test
 
-test( 'Has element references', function( assert ) {
+test( 'example', function( assert ) {
+    const input = $( '#myIdentifier' );
+    const inputElement = input.first();
+});
+
+test( 'another example', function( assert ) {
     const inputElement = document.getElementById( 'myIdentifier' );
     const input = $( '#myIdentifier' );
 });
