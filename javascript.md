@@ -1091,6 +1091,22 @@ const foo = {
 };
 ```
 
+* **MUST** not use quotations (single or double) when defining property names
+
+```javascript
+// good
+const foo = {
+    bar: 'bar'
+};
+
+// bad
+const foo = {
+    'bar': 'bar',
+    "baz": "baz"
+};
+```
+
+
 * **MUST** use dot-notation when accessing properties
 
 ```javascript
