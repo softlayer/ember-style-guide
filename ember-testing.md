@@ -267,12 +267,7 @@ test( 'Testing asynchronous behavior', function( assert ) {
 // unit or integration test
 
 test( 'example', function( assert ) {
-    const input = $( '#myIdentifier' );
-    const inputElement = input.first();
-});
-
-test( 'another example', function( assert ) {
-    const inputElement = document.getElementById( 'myIdentifier' );
-    const input = $( '#myIdentifier' );
+    const input = this.$( '>:first-child' ).find( 'input' );
+    const inputElement = input.get( 0 );
 });
 ```
