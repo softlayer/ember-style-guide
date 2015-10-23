@@ -11,6 +11,9 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 ### Test Cases
 
 * [Comments](#comments)
+* [Naming: Component Unit Tests](#naming-component-unit-tests)
+* [Naming: Unit Tests](#naming-unit-tests)
+* [Naming: Component Integration Tests](#naming-component-integration-tests)
 
 
 ### Assertions
@@ -56,6 +59,30 @@ DocBlock containing comments explaining something peculiar about the test case
 complicated enough that comments are warranted.  These are tests - there should
 only be light-weight logic most likely testing input and output or isolated
 behaviors.
+
+
+### Naming: Unit Tests
+
+* Test cases asserting that default properties are assigned to their
+expected values **MUST** be named: *Default property values*
+* Test cases asserting that expected Mixins are mixed in **MUST** be
+named: *Expected Mixins are present*
+    * [See Example](#example-testing-mixins-are-mixed-in)
+* Test cases asserting that computed properties are observing the
+correct properties **MUST** be named: Dependent keys are correct
+    * [See Example](#example-testing-dependent-keys)
+
+
+### Naming: Component Unit Tests
+
+* Test cases asserting that there is no DOM-reference leakage outside of a
+component **MUST** be named: There are no references to Ember.$, $ or jQuery
+
+
+### Naming: Component Integration Tests
+
+* Test cases asserting the default rendered state of the component **MUST** be
+named: *Default rendered state*
 
 
 ### assert.expect()
