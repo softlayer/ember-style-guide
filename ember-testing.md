@@ -11,8 +11,8 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 ### Test Cases
 
 * [Comments](#comments)
-* [Naming: Component Unit Tests](#naming-component-unit-tests)
 * [Naming: Unit Tests](#naming-unit-tests)
+* [Naming: Component Unit Tests](#naming-component-unit-tests)
 * [Naming: Component Integration Tests](#naming-component-integration-tests)
 
 
