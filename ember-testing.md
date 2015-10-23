@@ -76,7 +76,7 @@ correct properties **MUST** be named: Dependent keys are correct
 ### Naming: Component Unit Tests
 
 * Test cases asserting that there is no DOM-reference leakage outside of a
-component **MUST** be named: There are no references to Ember.$, $ or jQuery
+component **MUST** be named: *There are no references to Ember.$, $ or jQuery*
 
 
 ### Naming: Component Integration Tests
