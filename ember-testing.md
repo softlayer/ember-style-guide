@@ -69,7 +69,7 @@ expected values **MUST** be named: *Default property values*
 named: *Expected Mixins are present*
     * [See Example](#example-testing-mixins-are-mixed-in)
 * Test cases asserting that computed properties are observing the
-correct properties **MUST** be named: Dependent keys are correct
+correct properties **MUST** be named: *Dependent keys are correct*
     * [See Example](#example-testing-dependent-keys)
 
 
