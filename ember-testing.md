@@ -121,6 +121,7 @@ then the name used **MUST** not end with the string "*Element*"
     * the logic of the computed property functions
     * the logic of any actions
     * the logic of any event handlers
+    * that there is no DOM-reference leakage outside of a component
 * Whenever testing default values of properties in components, mixins, routes,
 etc, you **SHOULD** assert the properties in the same alphabetical order as
 they appear in the unit under test.  This makes it easier to find the related
@@ -161,13 +162,6 @@ also interacts with properties on the component, may need to also be Unit tested
         * do not need to test the logic of the action - this is done in the
         unit test.  Instead, this testing ensures that the template has bound
         things together correctly
-    * multiple rendered instances of the component in a template
-        * ensures there is no pollution of references between the instances.
-        The second rendered instance of the component should be consistently
-        exercised while the first one is monitored to ensure there are not
-        unintended side effects.  Such unintended side effects are such that a
-        value set on a property on the second rendered instance should not be
-        reflected in the first rendered instance.
 * **MUST** reference a component under test via `this.$( '>:first-child' )`
 rather than via a class name when appropriate, which is the majority of the
 time.
@@ -177,12 +171,6 @@ time.
     components and need to access ones beyond `first-child`.
 * **MUST** use `find()` for all selections, whether via an element type (i.e.
 'span') or another selector (i.e. '.className')
-
-Of course there are always exceptions...
-
-* multiple rendered instances do not always have to be tested.  If the
-component does not contain any logic that references the rendered instance via
-`this.$()` then it is not necessary.
 
 
 ### Rendering Templates
