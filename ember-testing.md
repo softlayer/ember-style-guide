@@ -122,6 +122,7 @@ then the name used **MUST** not end with the string "*Element*"
     * the logic of any actions
     * the logic of any event handlers
     * that there is no DOM-reference leakage outside of a component
+        * This is done in Unit Tests due to the limitation that we cannot invoke specific events or directly call specific functions/methods on the component from within Integration tests
 * Whenever testing default values of properties in components, mixins, routes,
 etc, you **SHOULD** assert the properties in the same alphabetical order as
 they appear in the unit under test.  This makes it easier to find the related
