@@ -41,6 +41,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 ### Examples
 
 * [Testing dependent keys](#example-testing-dependent-keys)
+* [Testing observer keys](#example-testing-observer-keys)
 * [Testing mixins are mixed in](#example-testing-mixins-are-mixed-in)
 * [Rendering templates](#example-rendering-templates)
 * [Asynchronous testing](#example-asynchronous-testing)
@@ -118,6 +119,8 @@ then the name used **MUST** not end with the string "*Element*"
     [See Example](#example-testing-mixins-are-mixed-in)
     * the dependent keys computed properties are observing, via the
     `_dependentKeys` property [See Example](#example-testing-dependent-keys)
+    * the observer keys ember observers are observing, via the 
+    `__ember_observes__` property [See Example](#example-testing-observer-keys)
     * the logic of the computed property functions
     * the logic of any actions
     * the logic of any event handlers
@@ -212,6 +215,26 @@ test( 'Dependent keys are correct', function( assert ) {
         component.sizeClass._dependentKeys,
         sizeClassDependentKeys,
         'Dependent keys are correct for sizeClass()'
+    );
+});
+```
+
+### Example: Testing observer keys
+
+```javascript
+// unit test
+
+test( 'Observer keys are correct', function( assert ) {
+    const component = this.subject();
+
+    const setupTypeaheadKeys = [
+        'suggestions'
+    ];
+
+    assert.deepEqual(
+        component.setupTypeahead.__ember_observes__,
+        setupTypeaheadKeys,
+        'Observer keys are correct for setupTypeahead()'
     );
 });
 ```
