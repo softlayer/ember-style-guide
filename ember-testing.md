@@ -72,6 +72,9 @@ named: *Expected Mixins are present*
 * Test cases asserting that computed properties are observing the
 correct properties **MUST** be named: *Dependent keys are correct*
     * [See Example](#example-testing-dependent-keys)
+* Test cases asserting that observer properties are observing the
+correct properties **MUST** be named: *Observer keys are correct*
+    * [See Example](#example-testing-observer-keys)
 
 
 ### Naming: Component Unit Tests
