@@ -634,14 +634,15 @@ export default Ember.Component.extend( TooltipEnabled, {
 });
 
 /**
- * @memberof module:components/sl-grid
+ * @memberof module:addon/components/sl-grid
  * @enum {String}
+ * @property {String} LEFT "left"
+ * @property {String} RIGHT "right"
  */
-const ColumnAlign = Object.freeze({
+export const ColumnAlign = Object.freeze({
     LEFT: 'left',
     RIGHT: 'right'
 });
-export { ColumnAlign };
 ```
 
 
