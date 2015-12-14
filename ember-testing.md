@@ -1,5 +1,6 @@
-
 # Ember.js Testing Guide
+
+These guidelines are specific to the 1.13.x version of Ember.js
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
@@ -122,7 +123,7 @@ then the name used **MUST** not end with the string "*Element*"
     [See Example](#example-testing-mixins-are-mixed-in)
     * the dependent keys computed properties are observing, via the
     `_dependentKeys` property [See Example](#example-testing-dependent-keys)
-    * the observer keys ember observers are observing, via the 
+    * the observer keys ember observers are observing, via the
     `__ember_observes__` property [See Example](#example-testing-observer-keys)
     * the logic of the computed property functions
     * the logic of any actions
