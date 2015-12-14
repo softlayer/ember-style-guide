@@ -149,8 +149,8 @@ meantime the `@augments` tag should be used.
 * `@override`
     * This tag indicates that a symbol overrides a symbol with the same name in
     a parent class.  Given this definition it could be argued that properties
-    such as "classNameBindings", "tagName" and others would fall within this
-    category and that "beforeModel", "setupController" and similar certainly do.
+    such as `classNameBindings`, `tagName`, and others would fall within this
+    category and that `beforeModel`, `setupController`, and similar certainly do.
     Even with limited experience with Ember.js you will quickly learn to
     recognize these properties and methods and realize that they are overriding
     their parental definitions.  Therefore, to reduce the tediousness of having
