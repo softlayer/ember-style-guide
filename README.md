@@ -613,7 +613,7 @@ export default Ember.Component.extend( TooltipEnabled, {
      * @function
      * @param {ember/Array} input
      * @param {String} [modifier]
-     * @throws {ember.assert} If `input` is empty
+     * @throws {ember/Error} If `input` is empty
      * @returns {ember/RSVP.Promise} Resolution of promise contains possible types of String, Number, Boolean
      */
     secretStuff: function( input, modifier ) {
