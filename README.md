@@ -54,8 +54,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Where should DOM interactions occur in an Ember application?](#where-should-dom-interactions-occur-in-an-ember-application)
 * [Where to put actions in an Ember application](#where-to-put-actions-in-an-ember-application)
 * [Routes](#routes)
-* [Do not redefine the `init()` method, or do so with full knowledge of what you are doing](#do-not-redefine-the-init-method-or-do-so-with-full-knowledge-of-what-you-are-doing)
-* [Do not redefine the `willInsertElement()`, `didInsertElement()`, `willClearRender()`, `willDestroyElement()`, or `didDestroyElement()` methods, or do so with full knowledge of what you are doing](#do-not-redefine-the-willinsertelement-didinsertelement-willclearrender-willdestroyelement-or-diddestroyelement-methods-or-do-so-with-full-knowledge-of-what-you-are-doing)
+* [Proper use of `on()`](#proper-use-of-on)
 * [Observers](#observers)
 
 
@@ -795,6 +794,7 @@ application-specific implementation required, then routes **SHOULD** be used.
 * If the action needs to be shared with other Components or Routes, place it in
 the lowest-level of shared access between the items requiring shared access.
 
+
 ### Routes
 
 * Manage application state
@@ -802,26 +802,11 @@ the lowest-level of shared access between the items requiring shared access.
 Components should be the first place such needs should be implemented
 
 
-### Do not redefine the `init()` method, or do so with full knowledge of what you are doing
+### Proper use of on()
 
-* Instead use the `Ember.on( 'init', function() {} )` pattern
-* [http://reefpoints.dockyard.com/2014/04/28/dont-override-init.html](http://reefpoints.dockyard.com/2014/04/28/dont-override-init.html)
-* [https://github.com/emberjs/ember.js/issues/3399](https://github.com/emberjs/ember.js/issues/3399)
-* Having said not to use it
-[http://reefpoints.dockyard.com/2014/04/17/ember-object-self-troll.html](http://reefpoints.dockyard.com/2014/04/17/ember-object-self-troll.html)
-offers a reason for when you should
-    * If you do you will likely need to call `this._super( ...arguments )`,
-    though this will depend on your exact needs.
-    * It is the last part of the article about subclasses being able to
-    override that should be the take away from this article
+* `on()` **SHOULD NOT** be used *EXCEPT* for in cases of very rare exception
+* See [Proper Use Of Ember on()](http://notmessenger.com/proper-use-of-ember-on)
 
-
-### Do not redefine the `willInsertElement()`, `didInsertElement()`, `willClearRender()`, `willDestroyElement()`, or `didDestroyElement()` methods, or do so with full knowledge of what you are doing
-
-* Instead use the `Ember.on( <eventName>, function() {} )` pattern
-* Rarely will you need to redefine any of these methods.  If you do you will
-likely need to call `this._super( ...arguments )`, though this will
-depend on your exact needs.
 
 ### Observers
 
