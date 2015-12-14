@@ -784,7 +784,7 @@ properties, etc **MUST** be listed alphabetically in their respective sections.
 * **SHOULD** be contained in the Component whenever possible.  This is the
 closest layer to where the DOM was likely created.
 * If the interaction needs to be shared across Components or if there is an
-application-specific implementation required, the routes **SHOULD** be used.
+application-specific implementation required, then routes **SHOULD** be used.
 
 
 ### Where to put actions in an Ember application
