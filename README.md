@@ -326,9 +326,9 @@ numberOfMonths: 12
 name: 'configuration',
 
 /**
- * String representing the full timezone name, as used by and interpreted by Moment-timezone
+ * String representing the full timezone name
  *
- * @type {ember/String}
+ * @type {String}
  */
 timezone: null,
 
