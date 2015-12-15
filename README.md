@@ -92,6 +92,9 @@ Since JSDoc does not yet currently fully support ES6 syntax its conventions do
 not always reflect the architecture of an Ember application. The style guides
 and examples in this section serve to remedy these discrepancies.
 
+The [ember-cli-jsdoc](https://github.com/softlayer/ember-cli-jsdoc) addon
+should be used to achieve the support presented in this guide.
+
 
 ##### JSDoc tags utilizing
 
