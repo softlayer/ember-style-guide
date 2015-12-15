@@ -154,6 +154,10 @@ meantime the `@augments` tag should be used.
     * a `*` refers to native JavaScript types
     * more specific ember.* types **MUST** be used when warranted
 
+* `@param`
+    * **MUST** use the JSDoc syntax for optional parameters and default values
+    * **MUST NOT** use the Google Closure Compiler syntax
+
 * `@override`
     * This tag indicates that a symbol overrides a symbol with the same name in
     a parent class.  Given this definition it could be argued that properties
