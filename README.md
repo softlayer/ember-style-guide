@@ -703,16 +703,6 @@ themeClassName: Ember.computed(
     }
 )
 
-setupTypeahead: Ember.computed(
-    'suggestions',
-    Ember.on(
-        'didInsertElement',
-        function() {
-            ...
-        }
-    )
-)
-
 
 // SAMPLE: Test assertions
 
