@@ -57,7 +57,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Where should DOM interactions occur in an Ember application?](#where-should-dom-interactions-occur-in-an-ember-application)
 * [Where to put actions in an Ember application](#where-to-put-actions-in-an-ember-application)
 * [Routes](#routes)
-* [Defining functions to be called when events are triggered](#defining-functions-to-be-called-when-events-are triggered)
+* [Defining functions to be called when events are triggered](#defining-functions-to-be-called-when-events-are-triggered)
 * [Observers](#observers)
 
 
