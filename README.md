@@ -687,17 +687,10 @@ classNameBindings: [
 ]
 
 
-// SAMPLE: Ember.observer, Ember.on, Ember.computed
+// SAMPLE: Ember.observer, Ember.computed
 
 updateData: Ember.observer(
     'series',
-    function() {
-        ...
-    }
-),
-
-setupChart: Ember.on(
-    'didInsertElement',
     function() {
         ...
     }
