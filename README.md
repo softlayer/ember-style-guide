@@ -547,12 +547,11 @@ export default Ember.Component.extend( TooltipEnabled, {
      * @function
      * @returns {undefined}
      */
-    initChildren: Ember.on(
-        'init',
-        function() {
-            this.set( 'children', [] );
-        }
-    ),
+    init() {
+        this._super( ...arguments );
+
+        this.set( 'children', [] );
+    },
 
     /**
      * React to route changes
