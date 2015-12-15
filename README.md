@@ -57,7 +57,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Where should DOM interactions occur in an Ember application?](#where-should-dom-interactions-occur-in-an-ember-application)
 * [Where to put actions in an Ember application](#where-to-put-actions-in-an-ember-application)
 * [Routes](#routes)
-* [Proper use of `on()`](#proper-use-of-on)
+* [Defining functions to be called when events are triggered](#defining-functions-to-be-called-when-events-are triggered)
 * [Observers](#observers)
 
 
@@ -808,10 +808,13 @@ the lowest-level of shared access between the items requiring shared access.
 Components should be the first place such needs should be implemented
 
 
-### Proper use of on()
+### Defining functions to be called when events are triggered
 
-* `on()` **SHOULD NOT** be used *EXCEPT* for in cases of very rare exception
-* See [Proper Use Of Ember on()](http://notmessenger.com/proper-use-of-ember-on)
+* From [Proper Use Of Ember on()](http://notmessenger.com/proper-use-of-ember-on):
+    * `on()` **SHOULD NOT** be used *except* for in cases of *very rare* exception
+    * `this._super( ...arguments )` **MUST** always be called
+    * In `init()` the call to `this._super( ...arguments )` should be before
+    using this for anything else.
 
 
 ### Observers
