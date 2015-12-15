@@ -4,7 +4,10 @@
 This document extends the [JavaScript Style Guide](javascript.md) to provide
 Ember.js specific guidance.
 
-These guidelines are specific to the 1.13.x version of Ember.js
+These guidelines are specific to:
+
+* Ember 1.13.x
+* [ember-cli-jsdoc 1.3.1](https://github.com/softlayer/ember-cli-jsdoc/releases)
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
