@@ -156,9 +156,10 @@ also interacts with properties on the component, may need to also be Unit tested
 ### Component Integration Tests
 
 * **MUST** test:
-    *  default rendered state of the component, including:
+    * default rendered state of the component (only populating required
+    properties), including:
         * default classes applied
-        * default properties/attributes applied
+        * default properties/attributes (values) applied
         * default characteristics of any mixins used by the component
     * any properties that can be provided as different values that cause a DOM
     change
