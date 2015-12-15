@@ -122,6 +122,7 @@ Only the following Block Tags are acceptable for use in documenting your code:
     * **MUST NOT** use for `.on()` calls - the
     [emberListensTag plugin](https://github.com/notmessenger/jsdoc-plugins#emberlistenstag)
     will automatically add them
+    * The use of `.on()` calls is restricted.  See [Defining functions to be called when events are triggered](#defining-functions-to-be-called-when-events-are-triggered)
 * [@module](http://www.usejsdoc.org/tags-module.html)
 * [@override](http://www.usejsdoc.org/tags-override.html)
 * [@param](http://www.usejsdoc.org/tags-param.html)
