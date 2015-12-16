@@ -41,12 +41,13 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Examples
 
-* [Testing expected mixins are present](#example-testing-expected-mixins-are-present)
-* [Testing dependent keys are correct](#example-testing-dependent-keys-are-correct)
-* [Testing observer keys are correct](#example-testing-observer-keys-are-correct)
-* [Testing default rendered state](#example-testing-default-rendered-state)
+* [Unit Tests: Testing default property values](#example-testing-default-property-values)
+* [Unit Tests: Testing expected mixins are present](#example-testing-expected-mixins-are-present)
+* [Unit Tests: Testing dependent keys are correct](#example-testing-dependent-keys-are-correct)
+* [Unit Tests: Testing observer keys are correct](#example-testing-observer-keys-are-correct)
+* [Component Integration Tests: Testing default rendered state](#example-testing-default-rendered-state)
 * [Element vs jQuery object](#example-element-vs-jquery-object)
-* [Component integration tests - find() and hasClass()](#example-component-integration-tests---find-and-hasclass)
+* [Component Integration Tests: find() and hasClass()](#example-component-integration-tests---find-and-hasclass)
 * [Rendering templates](#example-rendering-templates)
 * [Asynchronous testing](#example-asynchronous-testing)
 
@@ -70,6 +71,7 @@ behaviors.
 
 * Test cases asserting that default properties are assigned to their
 expected values **MUST** be named: *Default property values*
+    * [See Example](#example-testing-default-property-values)
 * Test cases asserting that expected Mixins are mixed in **MUST** be
 named: *Expected Mixins are present*
     * [See Example](#example-testing-expected-mixins-are-present)
@@ -120,7 +122,7 @@ then the name used **MUST** not end with the string "*Element*"
 ### Component Unit Tests
 
 * **MUST** test:
-    * default values of all properties, including `Enums`, except for:
+    * default values of all properties, including `Enums`, except for: [See Example](#example-testing-default-property-values)
         * `attributeBindings`
         * `classNames`
         * `classNameBindings`
@@ -202,6 +204,153 @@ unregistered at the conclusion of its use
 [See Example](#example-rendering-templates)
 
 
+### Example: Testing default property values
+
+```javascript
+// sl-ember-components/components/sl-alert
+
+import Ember from 'ember';
+import layout from '../templates/components/sl-alert';
+
+/**
+ * Bootstrap theme names for alert components
+ *
+ * @memberof module:addon/components/sl-alert
+ * @enum {String}
+ * @property {String} DANGER 'danger'
+ * @property {String} INFO 'info'
+ * @property {String} SUCCESS 'success'
+ * @property {String} WARNING 'warning'
+ */
+export const Theme = Object.freeze({
+    DANGER: 'danger',
+    INFO: 'info',
+    SUCCESS: 'success',
+    WARNING: 'warning'
+});
+
+/**
+ * @module
+ * @augments ember/Component
+ */
+export default Ember.Component.extend({
+
+    // -------------------------------------------------------------------------
+    // Dependencies
+
+    // -------------------------------------------------------------------------
+    // Attributes
+
+    /** @type {String} */
+    ariaRole: 'alert',
+
+    /** @type {String[]} */
+    classNameBindings: [
+        'themeClassName',
+        'dismissable:alert-dismissable'
+    ],
+
+    /** @type {String[]} */
+    classNames: [
+        'alert',
+        'sl-alert'
+    ],
+
+    /** @type {Object} */
+    layout,
+
+    // -------------------------------------------------------------------------
+    // Actions
+
+    /**
+     * @type {Object}
+     */
+    actions: {
+
+        /**
+         * Trigger a bound "dismiss" action when the alert is dismissed
+         *
+         * @function actions:dismiss
+         * @returns {undefined}
+         */
+        dismiss() {
+            this.sendAction( 'dismiss' );
+        }
+
+    },
+
+    // -------------------------------------------------------------------------
+    // Events
+
+    // -------------------------------------------------------------------------
+    // Properties
+
+    /**
+     * Whether to make the alert dismissable or not
+     *
+     * @type {Boolean}
+     */
+    dismissable: false,
+
+    /**
+     * The Bootstrap "theme" style to apply to the alert
+     *
+     * @type {Theme}
+     */
+    theme: Theme.INFO,
+
+    // -------------------------------------------------------------------------
+    // Observers
+
+    // -------------------------------------------------------------------------
+    // Methods
+
+    /**
+     * The generated Bootstrap "theme" style class for the alert
+     *
+     * @function
+     * @returns {String} Defaults to "alert-info"
+     */
+    themeClassName: Ember.computed(
+        'theme',
+        function() {
+            const theme = this.get( 'theme' );
+
+            return `alert-${theme}`;
+        }
+    )
+
+});
+```
+
+```javascript
+// component integration test
+
+import { Theme } from 'sl-ember-components/components/sl-alert';
+
+test( 'Default property values are set correctly', function( assert ) {
+    const component = this.subject();
+
+    assert.strictEqual(
+        component.get( 'ariaRole' ),
+        'alert',
+        'ariaRole: "alert"'
+    );
+
+    assert.strictEqual(
+        component.get( 'dismissable' ),
+        false,
+        'dismissable: false'
+    );
+
+    assert.strictEqual(
+        component.get( 'theme' ),
+        Theme.INFO,
+        `theme: "${Theme.INFO}"`
+    );
+});
+```
+
 
 ### Example: Testing expected mixins are present
 
@@ -275,7 +424,7 @@ test( 'Observer keys are correct', function( assert ) {
 ### Example: Testing default rendered-state
 
 ```javascript
-// component
+// sl-ember-components/components/sl-alert
 
 import Ember from 'ember';
 import layout from '../templates/components/sl-alert';
