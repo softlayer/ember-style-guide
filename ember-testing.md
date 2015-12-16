@@ -44,6 +44,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Testing expected mixins are present](#example-testing-expected-mixins-are-present)
 * [Testing dependent keys are correct](#example-testing-dependent-keys-are-correct)
 * [Testing observer keys are correct](#example-testing-observer-keys-are-correct)
+* [Testing default rendered state](#example-testing-default-rendered-state)
 * [Element vs jQuery object](#example-element-vs-jquery-object)
 * [Component integration tests - find() and hasClass()](#example-component-integration-tests---find-and-hasclass)
 * [Rendering templates](#example-rendering-templates)
@@ -90,7 +91,7 @@ component **MUST** be named: *There are no references to Ember.$, $ or jQuery*
 
 * Test cases asserting the default rendered state of the component **MUST** be
 named: *Default rendered state*
-
+    * [See Example](#example-testing-default-rendered-state)
 
 ### assert.expect()
 
@@ -182,12 +183,12 @@ time.
     used and the functionality provided by the component.
     * When this is not always appropriate is when you are rendering multiple
     components and need to access ones beyond `first-child`.
-* **MUST** use `find()` for all internal selectors [See example](#example-component-integration-tests---find-and-hasclass)
+* **MUST** use `find()` for all internal selectors [See Example](#example-component-integration-tests---find-and-hasclass)
 * **MUST** use `hasClass()` to assert class existence for all DOM elements that
 are not nested inside of the component *AND* are only differentiated by their
-class [See example](#example-component-integration-tests---find-and-hasclass)
+class [See Example](#example-component-integration-tests---find-and-hasclass)
 * **SHOULD** use `find().length` to `assert.ok()` the existence of a class when
-the above is not possible [See example](#example-component-integration-tests---find-and-hasclass)
+the above is not possible [See Example](#example-component-integration-tests---find-and-hasclass)
 
 
 
@@ -199,6 +200,7 @@ with `Ember.HTMLBars.compile`
 unregistered at the conclusion of its use
 
 [See Example](#example-rendering-templates)
+
 
 
 ### Example: Testing expected mixins are present
@@ -270,6 +272,173 @@ test( 'Observer keys are correct', function( assert ) {
 ```
 
 
+### Example: Testing default rendered-state
+
+```javascript
+// component
+
+import Ember from 'ember';
+import layout from '../templates/components/sl-alert';
+
+/**
+ * Bootstrap theme names for alert components
+ *
+ * @memberof module:addon/components/sl-alert
+ * @enum {String}
+ * @property {String} DANGER 'danger'
+ * @property {String} INFO 'info'
+ * @property {String} SUCCESS 'success'
+ * @property {String} WARNING 'warning'
+ */
+export const Theme = Object.freeze({
+    DANGER: 'danger',
+    INFO: 'info',
+    SUCCESS: 'success',
+    WARNING: 'warning'
+});
+
+/**
+ * @module
+ * @augments ember/Component
+ */
+export default Ember.Component.extend({
+
+    // -------------------------------------------------------------------------
+    // Dependencies
+
+    // -------------------------------------------------------------------------
+    // Attributes
+
+    /** @type {String} */
+    ariaRole: 'alert',
+
+    /** @type {String[]} */
+    classNameBindings: [
+        'themeClassName',
+        'dismissable:alert-dismissable'
+    ],
+
+    /** @type {String[]} */
+    classNames: [
+        'alert',
+        'sl-alert'
+    ],
+
+    /** @type {Object} */
+    layout,
+
+    // -------------------------------------------------------------------------
+    // Actions
+
+    /**
+     * @type {Object}
+     */
+    actions: {
+
+        /**
+         * Trigger a bound "dismiss" action when the alert is dismissed
+         *
+         * @function actions:dismiss
+         * @returns {undefined}
+         */
+        dismiss() {
+            this.sendAction( 'dismiss' );
+        }
+
+    },
+
+    // -------------------------------------------------------------------------
+    // Events
+
+    // -------------------------------------------------------------------------
+    // Properties
+
+    /**
+     * Whether to make the alert dismissable or not
+     *
+     * @type {Boolean}
+     */
+    dismissable: false,
+
+    /**
+     * The Bootstrap "theme" style to apply to the alert
+     *
+     * @type {Theme}
+     */
+    theme: Theme.INFO,
+
+    // -------------------------------------------------------------------------
+    // Observers
+
+    // -------------------------------------------------------------------------
+    // Methods
+
+    /**
+     * The generated Bootstrap "theme" style class for the alert
+     *
+     * @function
+     * @returns {String} Defaults to "alert-info"
+     */
+    themeClassName: Ember.computed(
+        'theme',
+        function() {
+            const theme = this.get( 'theme' );
+
+            return `alert-${theme}`;
+        }
+    )
+
+});
+```
+
+```html
+// ../templates/components/sl-alert
+
+{{#if dismissable}}
+    <button
+        {{action "dismiss"}}
+        class="close"
+        data-dismiss="alert"
+        type="button"
+    >
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+{{/if}}
+
+{{yield}}
+```
+
+```javascript
+// component integration test
+
+test( 'Default rendered state', function( assert ) {
+
+    this.render( hbs`
+        {{#sl-alert}}
+            Default info alert
+        {{/sl-alert}}
+    ` );
+
+    assert.ok(
+        this.$( '>:first-child' ).hasClass( 'alert' ),
+        'Has class "alert"'
+    );
+
+    assert.ok(
+        this.$( '>:first-child' ).hasClass( 'alert-info' ),
+        'Default theme class is applied'
+    );
+
+    assert.strictEqual(
+        this.$( '>:first-child' ).attr( 'role' ),
+        'alert',
+        'ARIA role is applied'
+    );
+});
+```
+
+
 ### Example: Element vs jQuery object
 
 ```javascript
@@ -288,6 +457,11 @@ test( 'example', function( assert ) {
 // component
 
 export default Ember.Component.extend({
+
+    // -------------------------------------------------------------------------
+    // Attributes
+
+    /** @type {String[]} */
      classNames: [
         'componentClass'
     ]
@@ -305,7 +479,7 @@ export default Ember.Component.extend({
 ```
 
 ```javascript
-// integration test
+// component integration test
 
 assert.ok(
     this.$( '>:first-child' ).hasClass( 'componentClass' ),
