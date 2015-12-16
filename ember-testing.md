@@ -284,7 +284,7 @@ test( 'example', function( assert ) {
 
 ### Example: Component integration tests - find() and hasClass()
 
-```
+```javascript
 // component
 
 export default Ember.Component.extend({
@@ -292,8 +292,9 @@ export default Ember.Component.extend({
         'componentClass'
     ]
 });
+```
 
-
+```html
 // template
 
 <p class="help-block">{{helpText}}</p>
@@ -301,7 +302,9 @@ export default Ember.Component.extend({
 <span>Some content</span>
 
 <span class="moreText">Some more</span>
+```
 
+```javascript
 // integration test
 
 assert.ok(
