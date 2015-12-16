@@ -45,7 +45,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Testing dependent keys are correct](#example-testing-dependent-keys-are-correct)
 * [Testing observer keys are correct](#example-testing-observer-keys-are-correct)
 * [Element vs jQuery object](#example-element-vs-jquery-object)
-* [Component integration tests - find() and hasClass()](#example-component-integration-tests-find-and-hasClass)
+* [Component integration tests - find() and hasClass()](#example-component-integration-tests---find-and-hasclass)
 * [Rendering templates](#example-rendering-templates)
 * [Asynchronous testing](#example-asynchronous-testing)
 
@@ -182,12 +182,12 @@ time.
     used and the functionality provided by the component.
     * When this is not always appropriate is when you are rendering multiple
     components and need to access ones beyond `first-child`.
-* **MUST** use `find()` for all internal selectors [See example](#example-component-integration-tests-find-and-hasClass)
+* **MUST** use `find()` for all internal selectors [See example](#example-component-integration-tests---find-and-hasclass)
 * **MUST** use `hasClass()` to assert class existence for all DOM elements that
 are not nested inside of the component *AND* are only differentiated by their
-class [See example](#example-component-integration-tests-find-and-hasClass)
+class [See example](#example-component-integration-tests---find-and-hasclass)
 * **SHOULD** use `find().length` to `assert.ok()` the existence of a class when
-the above is not possible [See example](#example-component-integration-tests-find-and-hasClass)
+the above is not possible [See example](#example-component-integration-tests---find-and-hasclass)
 
 
 
