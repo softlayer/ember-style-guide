@@ -41,9 +41,11 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 
 ### Examples
 
-* [Testing dependent keys](#example-testing-dependent-keys)
-* [Testing observer keys](#example-testing-observer-keys)
-* [Testing mixins are mixed in](#example-testing-mixins-are-mixed-in)
+* [Testing expected mixins are present](#example-testing-expected-mixins-are-present)
+* [Testing dependent keys are correct](#example-testing-dependent-keys-are-correct)
+* [Testing observer keys are correct](#example-testing-observer-keys-are-correct)
+* [Element vs jQuery object](#example-element-vs-jquery-object)
+* [Component integration tests - find() and hasClass()](#example-component-integration-tests---find-and-hasclass)
 * [Rendering templates](#example-rendering-templates)
 * [Asynchronous testing](#example-asynchronous-testing)
 
@@ -69,13 +71,13 @@ behaviors.
 expected values **MUST** be named: *Default property values*
 * Test cases asserting that expected Mixins are mixed in **MUST** be
 named: *Expected Mixins are present*
-    * [See Example](#example-testing-mixins-are-mixed-in)
+    * [See Example](#example-testing-expected-mixins-are-present)
 * Test cases asserting that computed properties are observing the
 correct properties **MUST** be named: *Dependent keys are correct*
-    * [See Example](#example-testing-dependent-keys)
+    * [See Example](#example-testing-dependent-keys-are-correct)
 * Test cases asserting that observer properties are observing the
 correct properties **MUST** be named: *Observer keys are correct*
-    * [See Example](#example-testing-observer-keys)
+    * [See Example](#example-testing-observer-keys-are-correct)
 
 
 ### Naming: Component Unit Tests
@@ -93,6 +95,8 @@ named: *Default rendered state*
 ### assert.expect()
 
 * assert.expect() **MUST** only be used in asynchronous tests
+
+[See example](#example-asynchronous-testing)
 
 
 ### Specificity
@@ -120,11 +124,11 @@ then the name used **MUST** not end with the string "*Element*"
         * `classNames`
         * `classNameBindings`
     * that any expected mixins are mixed in
-    [See Example](#example-testing-mixins-are-mixed-in)
+    [See Example](#example-testing-expected-mixins-are-present)
     * the dependent keys computed properties are observing, via the
-    `_dependentKeys` property [See Example](#example-testing-dependent-keys)
+    `_dependentKeys` property [See Example](#example-testing-dependent-keys-are-correct)
     * the observer keys ember observers are observing, via the
-    `__ember_observes__` property [See Example](#example-testing-observer-keys)
+    `__ember_observes__` property [See Example](#example-testing-observer-keys-are-correct)
     * the logic of the computed property functions
     * the logic of any actions
     * the logic of any event handlers
@@ -178,8 +182,13 @@ time.
     used and the functionality provided by the component.
     * When this is not always appropriate is when you are rendering multiple
     components and need to access ones beyond `first-child`.
-* **MUST** use `find()` for all selections, whether via an element type (i.e.
-'span') or another selector (i.e. '.className')
+* **MUST** use `find()` for all internal selectors [See example](#example-component-integration-tests---find-and-hasclass)
+* **MUST** use `hasClass()` to assert class existence for all DOM elements that
+are not nested inside of the component *AND* are only differentiated by their
+class [See example](#example-component-integration-tests---find-and-hasclass)
+* **SHOULD** use `find().length` to `assert.ok()` the existence of a class when
+the above is not possible [See example](#example-component-integration-tests---find-and-hasclass)
+
 
 
 ### Rendering Templates
@@ -192,7 +201,22 @@ unregistered at the conclusion of its use
 [See Example](#example-rendering-templates)
 
 
-### Example: Testing dependent keys
+### Example: Testing expected mixins are present
+
+```javascript
+// unit test
+
+import InputBasedMixin from 'your-library/mixins/input-based';
+
+test( 'Expected Mixins are present', function( assert ) {
+    assert.ok(
+        InputBasedMixin.detect( this.subject() ),
+        'The input-based mixin is present'
+    );
+});
+```
+
+### Example: Testing dependent keys are correct
 
 ```javascript
 // unit test
@@ -224,7 +248,8 @@ test( 'Dependent keys are correct', function( assert ) {
 });
 ```
 
-### Example: Testing observer keys
+
+### Example: Testing observer keys are correct
 
 ```javascript
 // unit test
@@ -244,20 +269,57 @@ test( 'Observer keys are correct', function( assert ) {
 });
 ```
 
-### Example: Testing mixins are mixed in
+
+### Example: Element vs jQuery object
 
 ```javascript
-// unit test
+// unit or integration test
 
-import InputBasedMixin from 'your-library/mixins/input-based';
-
-test( 'Expected Mixins are present', function( assert ) {
-    assert.ok(
-        InputBasedMixin.detect( this.subject() ),
-        'The input-based mixin is present'
-    );
+test( 'example', function( assert ) {
+    const input = this.$( '>:first-child' ).find( 'input' );
+    const inputElement = input.get( 0 );
 });
 ```
+
+
+### Example: Component integration tests - find() and hasClass()
+
+```
+// component
+
+export default Ember.Component.extend({
+     classNames: [
+        'componentClass'
+    ]
+});
+
+
+// template
+
+<p class="help-block">{{helpText}}</p>
+
+<span>Some content</span>
+
+<span class="moreText">Some more</span>
+
+// integration test
+
+assert.ok(
+    this.$( '>:first-child' ).hasClass( 'componentClass' ),
+    'Has expected class'
+);
+
+assert.ok(
+    this.$( '>:first-child' ).find( '> p' ).hasClass( '.help-block' )
+    'Has expected class'
+);
+
+assert.ok(
+    this.$( '>:first-child' ).find( 'span.moreText' ).length
+    'Has more text'
+);
+```
+
 
 ### Example: Rendering templates
 
@@ -302,16 +364,5 @@ test( 'Testing asynchronous behavior', function( assert ) {
 
         done();
     });
-});
-```
-
-### Example: Element vs jQuery object
-
-```javascript
-// unit or integration test
-
-test( 'example', function( assert ) {
-    const input = this.$( '>:first-child' ).find( 'input' );
-    const inputElement = input.get( 0 );
 });
 ```
