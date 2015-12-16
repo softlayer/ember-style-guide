@@ -162,7 +162,7 @@ also interacts with properties on the component, may need to also be Unit tested
 
 * **MUST** test:
     * default rendered state of the component (only populating required
-    properties), including:
+    properties), including: [See Example](#example-testing-default-rendered-state)
         * default classes applied
         * default properties/attributes (values) applied
         * default characteristics of any mixins used by the component
