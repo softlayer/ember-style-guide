@@ -70,7 +70,7 @@ behaviors.
 ### Naming: Unit Tests
 
 * Test cases asserting that default properties are assigned to their
-expected values **MUST** be named: *Default property values*
+expected values **MUST** be named: *Default property values are set correctly*
     * [See Example](#example-testing-default-property-values)
 * Test cases asserting that expected Mixins are mixed in **MUST** be
 named: *Expected Mixins are present*
