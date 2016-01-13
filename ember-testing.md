@@ -97,7 +97,8 @@ named: *Default rendered state*
 
 ### assert.expect()
 
-* `assert.expect()` **MUST** only be used in asynchronous tests
+* **MUST** only be used in asynchronous tests
+* When used it **MUST** be the first line of code in the test case
 
 [See example](#example-asynchronous-testing)
 
