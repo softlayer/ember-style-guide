@@ -45,6 +45,7 @@ interpreted as described in [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt)
 * [Unit Tests: Testing expected mixins are present](#example-testing-expected-mixins-are-present)
 * [Unit Tests: Testing dependent keys are correct](#example-testing-dependent-keys-are-correct)
 * [Unit Tests: Testing observer keys are correct](#example-testing-observer-keys-are-correct)
+* [Component Unit Tests: Testing there is no DOM-reference leakage outside of a component](https://github.com/softlayer/sl-ember-test-helpers#global-libraries)
 * [Component Integration Tests: Testing default rendered state](#example-testing-default-rendered-state)
 * [Element vs jQuery object](#example-element-vs-jquery-object)
 * [Component Integration Tests: find() and hasClass()](#example-component-integration-tests---find-and-hasclass)
@@ -87,6 +88,7 @@ correct properties **MUST** be named: *Observer keys are correct*
 
 * Test cases asserting that there is no DOM-reference leakage outside of a
 component **MUST** be named: *There are no references to Ember.$, $ or jQuery*
+    * [See Example](https://github.com/softlayer/sl-ember-test-helpers#global-libraries)
 
 
 ### Naming: Component Integration Tests
