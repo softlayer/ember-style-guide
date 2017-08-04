@@ -181,7 +181,10 @@ and `@returns` tags when multiple types are represented.
 This commenting structure **MUST** be used as a template when creating new
 Component, Controller, Mixin, or Route files.  Route files will not contain all
 of the represented structures. The "[File Structure](#file-structure-2)" Section
-describes what should be placed in each section.
+describes what should be placed in each section. The blueprints folder in this repo 
+contains blueprints to override the default generators with this file structure. 
+Just copy the blueprints folder to the top level of your Ember app, 
+and it will override the default generators with their documented versions.
 
 ```
 ...({
